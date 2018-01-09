@@ -44,7 +44,7 @@ type
     fState: GuiState
     mbAllow*, fWasPressed: MouseState ##  Mouse buttons allowed for interaction.
     toggle*, fToggled: bool ##  If `true`, the widget is in toggle on/off mode.
-
+    grid_x*, grid_y*: int # hack so we can move between widgets with the cross pad/keyboard
 
 proc init*(widget: GuiWidget) =
   widget.initEntity()
@@ -54,6 +54,8 @@ proc init*(widget: GuiWidget) =
   widget.fWasPressed = 0
   widget.toggle = false
   widget.fToggled = false
+  widget.grid_x = -1
+  widget.grid_y = -1
 
 
 proc newGuiWidget*(): GuiWidget =

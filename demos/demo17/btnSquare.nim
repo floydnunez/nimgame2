@@ -6,7 +6,7 @@ import
 
 type
   SquareButton* = ref object of GuiButton
-
+  action*: proc
 
 proc init*(btn: SquareButton, graphic: Graphic, image: Graphic = nil) =
   GuiButton(btn).init(graphic, image)
@@ -18,5 +18,4 @@ proc newSquareButton*(graphic: Graphic, image: Graphic = nil): SquareButton =
 
 
 method onClick*(btn: SquareButton, mb: MouseButton) =
-  echo "clicked square button"
-
+  action()
